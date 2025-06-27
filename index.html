@@ -3,19 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Build a random background color changer</title>
+    <title>Dynamic Color Palette Generator</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Random Background Color changer</h1>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">
+          <span class="title-icon">🎨</span>
+          Dynamic Color Palette Generator
+        </h1>
+        <p class="subtitle">Create beautiful color combinations with just a click!</p>
+      </header>
 
-    <main>
-      <section class="bg-information-container">
-        <p>Hex Code: <span id="bg-hex-code">#110815</span></p>
-      </section>
+      <main class="main-content">
+        <div class="color-display">
+          <div class="color-info">
+            <div class="color-preview" id="color-preview"></div>
+            <div class="color-details">
+              <p class="color-label">Current Color</p>
+              <p class="color-code" id="bg-hex-code">#110815</p>
+              <p class="color-rgb" id="color-rgb">rgb(17, 8, 21)</p>
+            </div>
+          </div>
+        </div>
 
-      <button class="btn" id="btn">Change Background Color</button>
-    </main>
+        <div class="controls">
+          <div class="control-group">
+            <label for="color-mode" class="control-label">Color Mode:</label>
+            <select id="color-mode" class="control-select">
+              <option value="dark">Dark Theme</option>
+              <option value="bright">Bright Colors</option>
+              <option value="pastel">Pastel Colors</option>
+              <option value="gradient">Gradient Mode</option>
+              <option value="random">Random Mix</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="animation-speed" class="control-label">Animation Speed:</label>
+            <input type="range" id="animation-speed" class="control-slider" min="0" max="5" value="2">
+            <span class="speed-value" id="speed-value">2s</span>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-primary" id="change-btn">
+              <span class="btn-icon">✨</span>
+              Generate New Color
+            </button>
+            <button class="btn btn-secondary" id="auto-btn">
+              <span class="btn-icon">🔄</span>
+              Auto Change
+            </button>
+            <button class="btn btn-secondary" id="copy-btn">
+              <span class="btn-icon">📋</span>
+              Copy Color
+            </button>
+          </div>
+        </div>
+
+        <div class="color-history">
+          <h3 class="history-title">Recent Colors</h3>
+          <div class="history-grid" id="color-history"></div>
+        </div>
+
+        <div class="palette-suggestions">
+          <h3 class="palette-title">Color Palette Suggestions</h3>
+          <div class="palette-grid" id="palette-grid"></div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>Press <kbd>Space</kbd> to generate a new color • Press <kbd>G</kbd> to toggle auto mode</p>
+      </footer>
+    </div>
+
+    <div class="notification" id="notification"></div>
+    
     <script src="./script.js"></script>
   </body>
 </html>
